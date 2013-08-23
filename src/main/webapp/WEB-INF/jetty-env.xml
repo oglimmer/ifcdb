@@ -1,0 +1,21 @@
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN"
+   "http://jetty.mortbay.org/configure.dtd">
+<Configure id="webAppCtx" class="org.eclipse.jetty.webapp.WebAppContext">
+    <!-- default is 20,000 bytes -->
+	<Set name="maxFormContentSize">1000000000</Set>
+
+    <!-- if missing you get: Nothing to bind for name javax.enterprise.inject.spi.BeanManager/default -->
+    <New id="BeanManager" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>
+            <Ref id="webAppCtx" />
+        </Arg>
+        <Arg>BeanManager</Arg>
+        <Arg>
+            <New class="javax.naming.Reference">
+                <Arg>javax.enterprise.inject.spi.BeanManager</Arg>
+                <Arg>org.jboss.weld.resources.ManagerObjectFactory</Arg>
+                <Arg />
+            </New>
+        </Arg>
+    </New>
+</Configure>
