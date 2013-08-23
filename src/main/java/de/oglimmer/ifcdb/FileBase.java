@@ -21,7 +21,7 @@ public abstract class FileBase {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	public static String PATH_STRUCTURE = "yyyy/MM/dd/HH/mm/ss/";
+	public static String PATH_STRUCTURE = "yyyy/MM/dd/HH/";
 	public static String PATH_STRUCTURE_AS_NUMBER = PATH_STRUCTURE.replace("/", "");
 
 	protected Driver driver;
